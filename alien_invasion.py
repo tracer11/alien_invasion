@@ -19,7 +19,7 @@ def run_game():
     #checks for mouse and keyboard events
     gf.check_events(ai_settings, screen, ship, bullets)
     ship.update()
-    bullets.update()
+    gf.update_bullets(bullets)
     #updates the screen
     gf.update_screen(ai_settings, screen, ship, bullets)
 

@@ -2,7 +2,7 @@ import pygame
 from pygame.sprite import Sprite
 
 class Bullet(Sprite):
-  def __init__(self,ai_settings, screen, ship):
+  def __init__(self, ai_settings, screen, ship):
     super().__init__()
     self.screen = screen
 
@@ -21,6 +21,6 @@ class Bullet(Sprite):
 
   def draw_bullet(self):
     pygame.draw.rect(self.screen, self.color, self.rect)
-    
+
 
 
