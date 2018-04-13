@@ -68,6 +68,9 @@ def update_bullets(bullets):
     if bullet.rect.bottom <= 0:
       bullets.remove(bullet)
 
+def update_aliens(aliens):
+  aliens.update()
+
 
 def update_screen(ai_settings, screen, ship, aliens, bullets):
     screen.fill(ai_settings.bg_color)
