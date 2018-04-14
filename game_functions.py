@@ -61,12 +61,20 @@ def fire_bullets(ai_settings, screen, ship, bullets):
     new_bullet = Bullet(ai_settings, screen, ship)
     bullets.add(new_bullet)
 
-def update_bullets(bullets):
+def update_bullets(ai_settings, screen, ship, aliens, bullets):
   bullets.update()
-
+  check_bullet_alien_collison(ai_settings, screen, ship, aliens, bullets)
   for bullet in bullets.copy():
     if bullet.rect.bottom <= 0:
       bullets.remove(bullet)
+  
+
+def check_bullet_alien_collison(ai_settings, screen, ship, aliens, bullets):
+  collisons = pygame.sprite.groupcollide(bullets, aliens, True, True)
+  if len(aliens) == 0:
+    bullets.empty()
+    create_fleet(ai_settings, screen, ship, aliens)
+
 
 def update_aliens(ai_settings, aliens):
   check_fleet_edges(ai_settings, aliens)
